@@ -8,7 +8,7 @@ import java.awt.Color;
  * 
  * Look at all the code in the Hexagon, Square, and Triangle classes. 
  * 
- * This should look familar. Run the code to see what happens.
+ * This should look familiar. Run the code to see what happens.
  * 
  * Now go to the _04_shapes_inheritance package and open that ShapeRunner class.
  */
