@@ -5,13 +5,15 @@
 
 class Segment {
 
-//Add x and y member variables. They will hold the corner location of each segment of the snake.
+  //Add x and y member variables. They will hold the corner location of each segment of the snake.
+  int x;
+  int y;
 
-
-// Add a constructor with parameters to initialize each variable.
-
-
-
+  // Add a constructor with parameters to initialize each variable.
+  Segment(int x, int y) {
+    this.x=x;
+    this.y=y;
+  }
 }
 
 
@@ -19,8 +21,12 @@ class Segment {
 // ***** GAME VARIABLES *****
 // All the game variables that will be shared by the game methods are here
 //*
-
-
+f
+Segment segment;
+int foodX;
+int foodY;
+int direction=UP;
+int foodEaten=0;
 
 
 
@@ -30,12 +36,16 @@ class Segment {
 //*
 
 void setup() {
-
+  size(500, 500);
+  segment = new Segment(250,250);
+  frameRate(20);
+  dropFood();
 }
 
 void dropFood() {
   //Set the food in a new random location
-    
+  foodX = ((int)random(50)*10);
+  foodY = ((int)random(50)*10);
 }
 
 
@@ -46,16 +56,21 @@ void dropFood() {
 //*
 
 void draw() {
-  
+  background(23, 43, 54);
+  drawFood();
+  drawSnake();
 }
 
 void drawFood() {
   //Draw the food
-  
+  fill(255, 0, 0);
+  rect(foodX,foodY,10,10);
 }
 
 void drawSnake() {
   //Draw the head of the snake followed by its tail
+  fill(0,255,0);
+  rect(segment.x,segment.y,10,10);
 }
 
 
@@ -65,19 +80,16 @@ void drawSnake() {
 //*
 
 void drawTail() {
-  //Draw each segment of the tail 
-
+  //Draw each segment of the tail
 }
 
 void manageTail() {
   //After drawing the tail, add a new segment at the "start" of the tail and remove the one at the "end" 
   //This produces the illusion of the snake tail moving.
-  
 }
 
 void checkTailCollision() {
   //If the snake crosses its own tail, shrink the tail back to one segment
-  
 }
 
 
@@ -89,38 +101,35 @@ void checkTailCollision() {
 
 void keyPressed() {
   //Set the direction of the snake according to the arrow keys pressed
-  
 }
 
 void move() {
   //Change the location of the Snake head based on the direction it is moving.
-  
-    /*
+
+  /*
   switch(direction) {
-  case UP:
-    // move head up here 
-    break;
-  case DOWN:
-    // move head down here 
-    break;
-  case LEFT:
+   case UP:
+   // move head up here 
+   break;
+   case DOWN:
+   // move head down here 
+   break;
+   case LEFT:
    // figure it out 
-    break;
-  case RIGHT:
-    // mystery code goes here 
-    break;
-  }
-  */
+   break;
+   case RIGHT:
+   // mystery code goes here 
+   break;
+   }
+   */
 }
 
 void checkBoundaries() {
- //If the snake leaves the frame, make it reappear on the other side
- 
+  //If the snake leaves the frame, make it reappear on the other side
 }
 
 
 
 void eat() {
   //When the snake eats the food, its tail should grow and more food appear
-
 }
